@@ -12,9 +12,9 @@ type alias Model = { x : Float, y : Float}
 baby = Model -200 -10
 
 message = "Improving Children's quality of Life today and <br/>creating healthier communities for tomorrow"
-logo = "https://www.firsthandfoundation.org/wp-content/uploads/2015/03/FirstHand_c.jpg"
-umbrella = "http://ed101.bu.edu/StudentDoc/Archives/ED101sp06/ktlee/umbrella.gif"
-babyImg = "http://marketingworks.net/wp-content/themes/marketingworks/assets/images/baby-crawl.gif"
+logo = "https://raw.githubusercontent.com/drauniyar/2-5/master/firsthand/img/FirstHand_c.jpg"
+umbrella = "https://raw.githubusercontent.com/drauniyar/2-5/master/firsthand/img/umbrella.gif"
+babyImg = "https://raw.githubusercontent.com/drauniyar/2-5/master/firsthand/img/baby-crawl.gif"
 
 update (timeDelta) model = model |> updatePosition timeDelta
     
