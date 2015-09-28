@@ -1,9 +1,9 @@
 # Submission for 2^5 Competition#
 
-This project is written in [elm|http://elm-lang.org/]
+This project is written in [elm](http://elm-lang.org/)
 
 Instructions to run
- - Elm has a nice [online compiler|http://elm-lang.org/try]. Copy/Paste the content of file "firsthand.elm" in the editor and click on compile. the output will appear in the right panel.
+ - Elm has a nice [online compiler](http://elm-lang.org/try). Copy/Paste the content of file "firsthand.elm" in the editor and click on compile. the output will appear in the right panel.
 
  ## References
   - http://elm-lang.org/examples/
