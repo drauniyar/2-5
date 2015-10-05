@@ -4,11 +4,11 @@ import Graphics.Collage exposing (..)
 import Time exposing (..)
 import Window
 
-areaW =  400
-areaH =  320
+areaW =  300
+areaH =  300
 
 type alias Model = { x : Float, y : Float} 
-baby = Model -200 -10
+baby = Model -(areaW/2) -10
 
 logo = "https://raw.githubusercontent.com/drauniyar/2-5/master/firsthand/img/FirstHand_c.jpg"
 umbrella = "https://raw.githubusercontent.com/drauniyar/2-5/master/firsthand/img/umbrella.gif"
@@ -16,18 +16,18 @@ babyImg = "https://raw.githubusercontent.com/drauniyar/2-5/master/firsthand/img/
 
 update (timeDelta) model = model |> updatePosition timeDelta
     
-updatePosition dt ({x,y} as model) = { model |x <- clamp (-200) (100) (x + dt), y <- clamp (-200) (140) (y+2*dt)}
+updatePosition dt ({x,y} as model) = { model |x <- clamp (-(areaW/2)) ((areaW/2)-40) (x + dt), y <- clamp (-(areaW/2)) ((areaW/2)-50) (y+2*dt)}
 
 grad =linear (0,60) (0,-60)[ (0, rgb 0 171 235), (0.79, white), (0.8, rgb 38 192 0), (1, white)]
 
-background = rect 400 320|> gradient grad 
+background = circle 150 |> gradient grad 
 
 view (w,h) {x,y} =
   let src = babyImg
   in
     container w h middle <|
     collage areaW areaH [background
-        , toForm (image 100 50 logo |> opacity 0.5) |> move (140,y-10)
+        , toForm (image 100 50 logo |> opacity 0.2) |> move (0,y)
         , toForm (image 75 75 umbrella |> opacity 0.75) |> move (x-10,30)
         , toForm (image 50 50 src)|> move (x,-10)
       ]
