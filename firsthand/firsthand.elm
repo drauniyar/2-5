@@ -3,7 +3,6 @@ import Graphics.Element exposing (..)
 import Graphics.Collage exposing (..)
 import Time exposing (..)
 import Window
-import Markdown
 
 areaW =  400
 areaH =  320
@@ -11,14 +10,13 @@ areaH =  320
 type alias Model = { x : Float, y : Float} 
 baby = Model -200 -10
 
-message = "Improving Children's quality of Life today and <br/>creating healthier communities for tomorrow"
 logo = "https://raw.githubusercontent.com/drauniyar/2-5/master/firsthand/img/FirstHand_c.jpg"
 umbrella = "https://raw.githubusercontent.com/drauniyar/2-5/master/firsthand/img/umbrella.gif"
 babyImg = "https://raw.githubusercontent.com/drauniyar/2-5/master/firsthand/img/baby-crawl.gif"
 
 update (timeDelta) model = model |> updatePosition timeDelta
     
-updatePosition dt ({x,y} as model) = { model |x <- clamp (-200) (100) (x + dt)}
+updatePosition dt ({x,y} as model) = { model |x <- clamp (-200) (100) (x + dt), y <- clamp (-200) (140) (y+2*dt)}
 
 grad =linear (0,60) (0,-60)[ (0, rgb 0 171 235), (0.79, white), (0.8, rgb 38 192 0), (1, white)]
 
@@ -29,8 +27,7 @@ view (w,h) {x,y} =
   in
     container w h middle <|
     collage areaW areaH [background
-        , toForm (Markdown.toElement message) |> moveY(130)
-        , toForm (image 100 50 logo |> opacity 0.5) |> move (100,80)
+        , toForm (image 100 50 logo |> opacity 0.5) |> move (140,y-10)
         , toForm (image 75 75 umbrella |> opacity 0.75) |> move (x-10,30)
         , toForm (image 50 50 src)|> move (x,-10)
       ]
